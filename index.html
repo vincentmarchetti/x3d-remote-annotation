@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Astronaut</title>
+    <script src="https://www.x3dom.org/download/1.8.2/x3dom-full.js"></script>                
+    <link rel="stylesheet" href="https://www.x3dom.org/download/1.8.2/x3dom.css"></link>
+    
+    
+	
+	<style type="text/css">
+        body {margin:1em;}
+        x3d {margin-top:0.5em;}
+        .graphic-width {width:720px;}
+        .major-title {text-align:center; font-size:24pt}
+        .minor-title {text-align:center; font-size:18pt}
+    </style>
+</head>
+<body>
+<div class="graphic-width major-title">
+Astronaut
+</div>
+<div class="graphic-width minor-title">
+Remote annotation
+</div>
+<x3d class="graphic-width" height='480px'> 
+    <scene> 
+        <navigationinfo headlight='true' id="navigation_info"></navigationinfo>
+        <background skyColor="1 1 1"></background>
+        <directionallight ambientIntensity='0.0'  color='1 1 0' direction = '0 -0.866 -0.5' global='true' intensity='1.0' on='true' id="overhead_light"></directionallight>
+        <!-- <viewpoint position="0 0 20"></viewpoint> -->
+        <Viewpoint description="Front Viewpoint" fieldOfView="0.275"></Viewpoint>
+        <transform scale="1 1 1">
+        <transform translation="0 -1.0 0">
+        <inline url='"https://cdn.glitch.com/36cb8393-65c6-408d-a538-055ada20431b/Astronaut.glb" '></inline>
+        </transform>
+        </transform>
+        
+        
+        
+        <!-- 
+        For development: Optional inclusion of a "triad" shape showing the XYZ world axis as 
+        red - green - blue lines, intersecting at world origin, and each line segment 5 graphic
+        units long
+         -->
+        <switch whichChoice="0">
+        <transform scale="1 1 1">
+        <inline url='"triad.x3d"'></inline>
+        </transform>
+        </switch>
+        
+    </scene> 
+</x3d> 
+<div class="graphic-width" style="text-align:right">
+<a href="https://www.x3dom.org/documentation/interaction/" target="_blanl">Mouse Navigation Help</a>
+</div>
+
+</body>
+</html>
