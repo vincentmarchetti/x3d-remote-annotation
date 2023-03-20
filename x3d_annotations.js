@@ -38,4 +38,32 @@ function add_annotation(parent, annotation_dict, identifier, scale){
         annot_origin_marker.appendChild(ap);
     annot_frame.appendChild( annot_origin_marker );
     parent.appendChild( annot_frame )
+    
+    var leaderLength=0.1;
+    var leaderDirection = annotation_dict["normal"];
+    var leaderStart = new Array(3);
+    var leaderEnd   = new Array(3);
+    for( let i=0; i < 3; ++i){
+        leaderStart[i] = 0.0;
+        leaderEnd[i] = leaderDirection[i] * leaderLength;
+    }
+    let test = MFVec3f_attr( [leaderStart, leaderEnd ]);
 };
+
+function SFVec3f_attr( sfvec ){
+    // return XML attribute encoding
+    // sfvec an array of 3 numbers
+    return  sfvec[0].toString() + " " +
+            sfvec[1].toString() + " " +
+            sfvec[2].toString();
+}
+
+function MFVec3f_attr( mfvec ){
+    let rv = "";
+    for (let i=0; i < mfvec.length; ++i){
+        if (i > 0)
+            rv += ", ";
+        rv += SFVec3f_attr(mfvec[i]);
+    }
+    return rv;
+}
