@@ -35,17 +35,38 @@ function add_annotation(parent, annotation_dict, identifier, scale){
         ap.appendChild(mt);
         annot_origin_marker.appendChild(ap);
     annot_frame.appendChild( annot_origin_marker );
-    parent.appendChild( annot_frame )
     
-    var leaderLength=0.1;
-    var leaderDirection = annotation_dict["normal"];
-    var leaderStart = new Array(3);
-    var leaderEnd   = new Array(3);
+    
+    let leaderLength=0.2;
+        let leaderDirection = annotation_dict["normal"];
+        let leaderStart = new Array(3);
+        let leaderEnd   = new Array(3);
     for( let i=0; i < 3; ++i){
         leaderStart[i] = 0.0;
         leaderEnd[i] = leaderDirection[i] * leaderLength;
     }
-    let test = MFVec3f_attr( [leaderStart, leaderEnd ]);
+    
+    var leader = document.createElement("shape");
+    {
+        let ap = document.createElement('appearance');
+        let mt = document.createElement('material');
+            mt.setAttribute("emissiveColor", "0 1 0");
+        let lp = document.createElement('lineproperties');
+            lp.setAttribute("linewidthScaleFactor","3");
+        ap.appendChild(mt);
+        ap.appendChild(lp);
+        
+        let ls = document.createElement('lineset');
+        ls.setAttribute('vertexCount', '2');
+            let co = document.createElement('coordinate');
+            co.setAttribute('point', MFVec3f_attr([leaderStart, leaderEnd ]));
+            ls.appendChild(co);
+        leader.appendChild(ap);
+        leader.appendChild(ls);        
+    }
+    annot_frame.appendChild(leader);
+    parent.appendChild( annot_frame )
+
 };
 
 function SFVec3f_attr( sfvec ){

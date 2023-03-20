@@ -43,77 +43,16 @@ Remote annotation
         <navigationinfo headlight='true' id="navigation_info"></navigationinfo>
         <background skyColor="1 1 1"></background>
         <directionallight ambientIntensity='0.0'  color='1 1 0' direction = '0 -0.866 -0.5' global='true' intensity='1.0' on='true' id="overhead_light"></directionallight>
-        <!-- <viewpoint position="0 0 20"></viewpoint> -->
+        
         <Viewpoint description="Front Viewpoint" fieldOfView="0.275"></Viewpoint>
-        <transform scale="1 1 1">
+        
         <transform id="artifact-local-frame" translation="0 -1.0 0">
         
         <inline url='"https://cdn.glitch.com/36cb8393-65c6-408d-a538-055ada20431b/Astronaut.glb" '></inline>
 
-        <!-- 
-<transform translation="0.0652451665004884 1.8182700174153779 0.32465106720430725">
-                <shape>
-                        <appearance>
-                            <material emissiveColor="1 0 0" diffuseColor="0 0 0" specularColor="0 0 0"></material>
-                        </appearance>
-                        <sphere radius= 0.02></sphere>
-                    </shape>
-                    <shape>
-                        <appearance DEF="LEADER_APPEARANCE">
-                            <material emissiveColor="0.5 0.5 0.5"></material>
-                            <lineproperties linewidthScaleFactor="2"></lineproperties>
-                        </appearance>
-                        <lineset vertexCount="2">
-                        <coordinate point="0 0 0, +0.5 0.1 0.1"></coordinate>
-                        </lineset>
-                    </shape>
-        <transform scale="0.5 0.5 0.5" translation="+0.5 0.1 0.1">
-            <billboard axisOfRotation="1 0 0">
-            <billboard axisOfRotation="0 1 0">
-            <billboard axisOfRotation="0 0 0">
-            <transform scale="1.5 0.4 0">
-            <shape>
-                <indexedfaceset coordIndex="0 1 2 3 4" solid="true">
-                    <coordinate point="0 0 0 , 0.1 -0.5 0, 1 -0.5 0, 1 0.5 0, 0.1 0.5 0"></coordinate>
-                </indexedfaceset>
-                <appearance>
-                <material emissiveColor="0.9 0.9 0.9" diffuseColor="0 0 0" emissiveColor="0 0 0"></material>
-                </appearance>
-            </shape>
-            </transform>
-            
-            <transform translation="0.40 -0.05 0">
-            <shape>
-            <text string='"face mask"' justify='"MIDDLE"'>
-                <fontstyle style='PLAIN' family='SERIF' size="0.2"></fontstyle>
-            </text>
-            <appearance>
-                <material diffuseColor="0 0 0"></material>
-            </appearance>
-            </shape>
-            </transform>
-            
-            </billboard>
-            </billboard>
-            </billboard>
-        </transform>
-    </transform>
- -->
-        </transform>
+        
         </transform>
         
-        
-        
-        <!-- 
-        For development: Optional inclusion of a "triad" shape showing the XYZ world axis as 
-        red - green - blue lines, intersecting at world origin, and each line segment 5 graphic
-        units long
-         -->
-        <switch whichChoice="0">
-        <transform scale="1 1 1">
-        <inline url='"triad.x3d"'></inline>
-        </transform>
-        </switch>
         
     </scene> 
 </x3d> 
