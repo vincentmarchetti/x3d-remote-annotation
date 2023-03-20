@@ -19,9 +19,7 @@ function add_annotation(parent, annotation_dict, identifier, scale){
     console.log("in add_annotation for " + identifier);
     var annot_frame = document.createElement('transform')
     var annot_frame_origin = annotation_dict["position"];
-    var annot_frame_origin_string = annot_frame_origin[0].toString() + " " +
-                                    annot_frame_origin[1].toString() + " " +
-                                    annot_frame_origin[2].toString();
+    var annot_frame_origin_string = SFVec3f_attr(annot_frame_origin);
     annot_frame.setAttribute('translation', annot_frame_origin_string);
     annot_frame.setAttribute('id', identifier );
     var annot_origin_marker  = document.createElement('shape');
@@ -59,6 +57,8 @@ function SFVec3f_attr( sfvec ){
 }
 
 function MFVec3f_attr( mfvec ){
+    // return XML attribute enfoding of MFVec3f
+    // mfvec is an Array of (length 3 arrays of numbers)
     let rv = "";
     for (let i=0; i < mfvec.length; ++i){
         if (i > 0)
