@@ -9,9 +9,12 @@
     <script>
     function load_annotations(){
         fetch("astronaut_annotations.json").then( response => response.json() )
-            .then(annot => {
+            .then(annots => {
                 var transform=document.getElementById('artifact-local-frame');
-                add_annotation( transform, annot[0], 'annot-0' )
+                annots.forEach( annot => {
+                    var identifier = "annot-"+annot["id"].toString();
+                    add_annotation( transform, annot, identifier );
+                });
             });
     }
     </script>
