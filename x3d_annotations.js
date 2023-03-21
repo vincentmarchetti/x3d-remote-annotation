@@ -65,6 +65,67 @@ function add_annotation(parent, annotation_dict, identifier, scale){
         leader.appendChild(ls);        
     }
     annot_frame.appendChild(leader);
+    
+    {
+        let tr = document.createElement('transform');
+        tr.setAttribute('translation', SFVec3f_attr( leaderEnd ));
+        let bb1 = document.createElement('billboard');
+        bb1.setAttribute("axisOfRotation","1 0 0");
+        tr.appendChild(bb1);
+        let bb2 = document.createElement('billboard');
+        bb2.setAttribute("axisOfRotation","0 1 0");
+        bb1.appendChild(bb2);
+        tr.appendChild(bb1);
+        
+        let labelVertices = [
+            [0,0,0],
+            [0.1, -0.1, 0.0],
+            [0.8, -0.1, 0.0],
+            [0.8,  0.1, 0.0],
+            [0.1,  0.1, 0.0]
+        ];
+        
+        let shp = document.createElement('shape');
+        ifs = document.createElement('indexedfaceset');
+        ifs.setAttribute("coordIndex" , "0 1 2 3 4" );
+        ifs.setAttribute("solid","true");
+        let cc = document.createElement('coordinate');
+        cc.setAttribute('point', MFVec3f_attr(labelVertices));
+        ifs.appendChild(cc);
+        shp.appendChild( ifs );
+        let ap = document.createElement('appearance');
+        let mt = document.createElement('material');
+            mt.setAttribute("emissiveColor", "0.9 0.9 0.9");
+            mt.setAttribute("diffuseColor", "0.0 0.0 0.0");
+            mt.setAttribute("specularColor", "0.0 0.0 0.0");
+        ap.appendChild(mt);
+        shp.appendChild( ap );
+        bb2.appendChild(shp);
+        
+        let tr2  = document.createElement('transform');
+        tr2.setAttribute("translation", "0.2  -0.035  0.01");
+        let shptxt = document.createElement('shape');
+        let txt = document.createElement('text');
+            txt.setAttribute("justify",'"MIDDLE"');
+            txt.setAttribute("string", '"' + annotation_dict["value"] + '"');
+        let fnt = document.createElement("fontstyle");
+        fnt.setAttribute( "style",'PLAIN' );
+        fnt.setAttribute("family",'SERIF' );
+        fnt.setAttribute("size","0.15" );
+        txt.appendChild(fnt);
+        shptxt.appendChild(txt);
+        let apt = document.createElement('appearance');
+        let mtt = document.createElement('material');
+            mtt.setAttribute("emissiveColor", "0.0 0.0 0.0");
+            mtt.setAttribute("diffuseColor", "0.0 0.0 0.0");
+            mtt.setAttribute("specularColor", "0.0 0.0 0.0");
+        apt.appendChild(mtt);
+        shptxt.appendChild( apt );
+        tr2.appendChild(shptxt);
+        bb2.appendChild(tr2);
+        
+        annot_frame.appendChild(tr);
+    }
     parent.appendChild( annot_frame )
 
 };
