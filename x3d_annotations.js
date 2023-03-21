@@ -50,9 +50,9 @@ function add_annotation(parent, annotation_dict, identifier, scale){
     {
         let ap = document.createElement('appearance');
         let mt = document.createElement('material');
-            mt.setAttribute("emissiveColor", "0 1 0");
+            mt.setAttribute("emissiveColor", "1 0 0");
         let lp = document.createElement('lineproperties');
-            lp.setAttribute("linewidthScaleFactor","3");
+            lp.setAttribute("linewidthscalefactor","1");
         ap.appendChild(mt);
         ap.appendChild(lp);
         
@@ -79,10 +79,10 @@ function add_annotation(parent, annotation_dict, identifier, scale){
         
         let labelVertices = [
             [0,0,0],
-            [0.1, -0.1, 0.0],
-            [0.8, -0.1, 0.0],
-            [0.8,  0.1, 0.0],
-            [0.1,  0.1, 0.0]
+            [0.1, -0.06, 0.0],
+            [0.5, -0.06, 0.0],
+            [0.5,  0.06, 0.0],
+            [0.1,  0.06, 0.0]
         ];
         
         let shp = document.createElement('shape');
@@ -104,6 +104,7 @@ function add_annotation(parent, annotation_dict, identifier, scale){
         
         let tr2  = document.createElement('transform');
         tr2.setAttribute("translation", "0.2  -0.035  0.01");
+        tr2.setAttribute("scale", "0.06  0.06  0.06");
         let shptxt = document.createElement('shape');
         let txt = document.createElement('text');
             txt.setAttribute("justify",'"MIDDLE"');
@@ -111,7 +112,7 @@ function add_annotation(parent, annotation_dict, identifier, scale){
         let fnt = document.createElement("fontstyle");
         fnt.setAttribute( "style",'PLAIN' );
         fnt.setAttribute("family",'SERIF' );
-        fnt.setAttribute("size","0.15" );
+        fnt.setAttribute("size","1.5" );
         txt.appendChild(fnt);
         shptxt.appendChild(txt);
         let apt = document.createElement('appearance');
