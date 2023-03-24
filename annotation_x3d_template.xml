@@ -1,0 +1,56 @@
+
+
+<transform translation="0.0652451665004884 1.8182700174153779 0.32465106720430725">
+<!-- 
+This is documentation for the remote-annotation scene.
+It shows, in an HTML encoding of X3D, the X3D nodes which
+go into a single annotation label. This XML was used as
+a guide in developing javascript to create, by DOM scripting
+functions, these annotations
+ -->
+    <shape>
+        <appearance>
+            <material emissiveColor="1 0 0" diffuseColor="0 0 0" specularColor="0 0 0"></material>
+        </appearance>
+        <sphere radius= 0.02></sphere>
+    </shape>
+    <shape>
+        <appearance DEF="LEADER_APPEARANCE">
+            <material emissiveColor="0.5 0.5 0.5"></material>
+            <lineproperties linewidthscalefactor="2"></lineproperties>
+        </appearance>
+        <lineset vertexCount="2">
+        <coordinate point="0 0 0, +0.5 0.1 0.1"></coordinate>
+        </lineset>
+    </shape>
+    <transform scale="0.5 0.5 0.5" translation="+0.5 0.1 0.1">
+        <billboard axisOfRotation="1 0 0">
+        <billboard axisOfRotation="0 1 0">
+        <billboard axisOfRotation="0 0 0">
+        <transform scale="1.5 0.4 0">
+        <shape>
+            <indexedfaceset coordIndex="0 1 2 3 4" solid="true">
+                <coordinate point="0 0 0 , 0.1 -0.5 0, 1 -0.5 0, 1 0.5 0, 0.1 0.5 0"></coordinate>
+            </indexedfaceset>
+            <appearance>
+            <material emissiveColor="0.9 0.9 0.9" diffuseColor="0 0 0" emissiveColor="0 0 0"></material>
+            </appearance>
+        </shape>
+        </transform>
+    
+        <transform translation="0.40 -0.05 0">
+        <shape>
+        <text string='"face mask"' justify='"MIDDLE"'>
+            <fontstyle style='PLAIN' family='SERIF' size="0.2"></fontstyle>
+        </text>
+        <appearance>
+            <material diffuseColor="0 0 0"></material>
+        </appearance>
+        </shape>
+        </transform>
+    
+        </billboard>
+        </billboard>
+        </billboard>
+    </transform>
+</transform>
