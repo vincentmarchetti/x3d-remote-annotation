@@ -95,7 +95,7 @@ function add_annotation(parent, annotation_dict, identifier, scale){
         shp.appendChild( ifs );
         let ap = document.createElement('appearance');
         let mt = document.createElement('material');
-            mt.setAttribute("emissiveColor", "0.9 0.9 0.9");
+            mt.setAttribute("emissiveColor", "1.0 1.0 0.50");
             mt.setAttribute("diffuseColor", "0.0 0.0 0.0");
             mt.setAttribute("specularColor", "0.0 0.0 0.0");
         ap.appendChild(mt);

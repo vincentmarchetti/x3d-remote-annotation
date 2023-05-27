@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="https://www.x3dom.org/download/1.8.2/x3dom.css"></link>
     
     <script>
-    function load_annotations(){
-        fetch("astronaut_annotations.json").then( response => response.json() )
-            .then(annots => {
+    function load_annotations(dynamic_content_url){
+        // dynamic_content_url is a url to an accessible 
+        // resource of  mime type application/json
+        // encoding a dictionary with an element key "annotations"
+        // element is a list of individual annotation that can
+        // be rendtered by function add_annotation in script
+        // x3d_annotations.js
+        fetch(dynamic_content_url).then( response => response.json() )
+            .then(dyn_content => {
                 var transform=document.getElementById('artifact-local-frame');
-                annots.forEach( annot => {
+                dyn_content["annotations"].forEach( annot => {
                     var identifier = "annot-"+annot["id"].toString();
                     add_annotation( transform, annot, identifier );
                 });
@@ -30,7 +36,7 @@
 </head>
 <body>
 <script>
-    x3dom.runtime.ready = function() { load_annotations(); }
+    x3dom.runtime.ready = function() { load_annotations("label-annotation-issue-17.json"); }
 </script>
 <div class="graphic-width major-title">
 Astronaut
